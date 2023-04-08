@@ -4,7 +4,6 @@ import { Leva, useControls } from 'leva';
 import { Color } from 'three';
 import './App.css';
 import { SpinningCube } from './components/SpinningCube';
-import { useEffect, useState } from 'react';
 
 function App() {
   const controls = useControls('Camera', {
@@ -12,16 +11,9 @@ function App() {
     orbitSpeed: { label: 'Speed', value: 1, min: 0.5, max: 10 },
   });
 
-  const [levaCollapsed, setLevaCollapsed] = useState(true);
-  useEffect(() => {
-    setTimeout(() => setLevaCollapsed(false), 100);
-  }, []);
-
   return (
     <>
-      <Leva
-        collapsed={{ collapsed: levaCollapsed, onChange: setLevaCollapsed }}
-      />
+      <Leva titleBar={{ title: 'Configuration' }} collapsed />
       <div id="canvas-container">
         <Canvas
           camera={{ zoom: 0.6 }}

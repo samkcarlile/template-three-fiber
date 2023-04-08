@@ -29,12 +29,19 @@ export function SpinningCube() {
 }
 
 function useCubeControls() {
+  const dimConfig = () => ({
+    value: ~~(Math.random() * 6),
+    min: 1,
+    max: 10,
+    step: 1,
+  });
+
   const [controls, setControls] = useControls('Cube', () => ({
     color1: { label: 'Top Color', value: '#ff0000' as HexColorString },
     color2: { label: 'Bottom Color', value: '#0000ff' as HexColorString },
-    width: { label: 'Width', value: 1, min: 1, max: 10, step: 1 },
-    height: { label: 'Height', value: 1, min: 1, max: 10, step: 1 },
-    depth: { label: 'Depth', value: 1, min: 1, max: 10, step: 1 },
+    width: { label: 'Width', ...dimConfig() },
+    height: { label: 'Height', ...dimConfig() },
+    depth: { label: 'Depth', ...dimConfig() },
     autoRotate: { label: 'Auto Rotate', value: true },
     rotation: { label: 'Rotation', value: 0.2, min: 0, max: 3.14 },
   }));
