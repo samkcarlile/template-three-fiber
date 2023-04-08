@@ -1,4 +1,4 @@
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei/core/OrbitControls';
 import { Canvas } from '@react-three/fiber';
 import { Leva, useControls } from 'leva';
 import { Color } from 'three';

@@ -7,7 +7,7 @@ import {
 } from '@react-spring/three';
 import { omitKeys } from '@src/lib/utils';
 import { useControls } from 'leva';
-import { HexColorString } from 'three';
+import type { HexColorString } from 'three';
 
 export function SpinningCube() {
   const { color1, color2, scale, rotation } = useCubeControls();
